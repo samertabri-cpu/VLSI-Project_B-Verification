@@ -1,3 +1,6 @@
+# VLSI Project_B
+Full Chip Verification Environment
+
 # User Manual
 
 Hey, welcome.
@@ -678,25 +681,14 @@ python3 run_gui.py
 ```
 
 Tests that have a parameter spec get a small triangle (`>`) next to the
-task name. Click it to expand a per-test settings panel. Mock-up:
+task name. Click it to expand a per-test settings panel.
 
-```text
-+----------------------------------------------------------------------------+
-|  [ ]  Test 23   hw_write_ds_one_partial_buffer                       >    |
-+----------------------------------------------------------------------------+
-|   partial_address     logic [10:0]    [10..2048]                          |
-|     ( ) Random   (o) Manual    [   1000   ]    re-roll                    |
-|                                                                            |
-|   number_of_cycles    int             [1000..5000]                        |
-|     (o) Random   ( ) Manual    [   3120   ]    re-roll                    |
-|                                                                            |
-|   param               int             [100..5000]                         |
-|     ( ) Random   (o) Manual    [   2500   ]    re-roll                    |
-|                                                                            |
-|   ds_number           logic [11:0]    [8..4096]                           |
-|     (o) Random   ( ) Manual    [   2048   ]    re-roll                    |
-+----------------------------------------------------------------------------+
-```
+You will see this window pop up:
+
+<img width="1015" height="192" alt="Screenshot 2026-05-04 195130" src="https://github.com/user-attachments/assets/2d104e30-03e0-4587-8215-7aa5bfff362b" />
+
+
+
 
 Visual cues in the real GUI:
 
@@ -705,6 +697,17 @@ Visual cues in the real GUI:
   see at a glance that it depends on another parameter.
 - An out-of-range manual value turns the input red and shakes it.
 - `re-roll` redraws a random value and refreshes any dependent parameter.
+
+
+
+<img width="689" height="158" alt="Screenshot 2026-05-08 193710" src="https://github.com/user-attachments/assets/803be75e-4a42-46e5-a5ce-d75ec6c0371d" />
+
+```text
+•	Blue Tint: Parameters set to 'Random'.
+•	Yellow Tint: Parameters set to 'Manual'.
+•	Orange Text: Indicates a chained reference range.
+•	Red/Shaking Box: Indicates an out-of-range manual entry.
+```
 
 Pressing `RUN TESTS` with the values above puts this line into the generated
 testbench:
